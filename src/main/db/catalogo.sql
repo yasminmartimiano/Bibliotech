@@ -1,10 +1,6 @@
 CREATE DATABASE catalogo;
 
-USE DATABASE catalogo;
-
-DROP DATABASE catalogo;
-drop TABLE bibliotecario;
-drop TABLE livro;
+USE catalogo;
 
 CREATE TABLE bibliotecario (
     id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -17,7 +13,9 @@ CREATE TABLE livro (
     titulo VARCHAR(200),
     autor VARCHAR(200),
     genero VARCHAR(200),
-    status VARCHAR(200),
+    status ENUM('disponivel', 'emprestado', 'reservado'),
     data_cadastro DATE,
-    Foreign Key (id) REFERENCES bibliotecario(id)
-);
+    id_bibliotecario BIGINT,
+    FOREIGN KEY (id_bibliotecario) REFERENCES bibliotecario(id)
+); 
+

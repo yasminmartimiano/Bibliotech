@@ -1,5 +1,7 @@
 package com.martimiano.CatalogodeLivros.enums;
 
-public enum status {
-
+public enum StatusLivro {
+    DISPONIVEL,
+    EMPRESTADO,
+    RESERVADO;
 }

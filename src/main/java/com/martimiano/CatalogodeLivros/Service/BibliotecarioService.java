@@ -12,9 +12,9 @@ public class BibliotecarioService {
     @Autowired
     private BibliotecarioRepository repository;
 
-    /*cadastrar-, atualizar, deletar-*/
+    /*cadastrar-, atualizar-, deletar-*/
 
-    public BibliotecarioModel cadastrar(BibliotecarioModel bibliotecarioModel){
+    public BibliotecarioModel cadastrarBibliotecarioModel(BibliotecarioModel bibliotecarioModel){
         return repository.save(bibliotecarioModel);
     }
 

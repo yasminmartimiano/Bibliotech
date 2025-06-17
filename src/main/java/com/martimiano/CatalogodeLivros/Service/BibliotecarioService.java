@@ -2,6 +2,7 @@ package com.martimiano.CatalogodeLivros.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.martimiano.CatalogodeLivros.Model.BibliotecarioModel;
 import com.martimiano.CatalogodeLivros.Repository.BibliotecarioRepository;
@@ -30,4 +31,8 @@ public class BibliotecarioService {
         return repository.save(bibliotecarioModelAtual);
     }
 
+    public void deletarBibliotecario(@PathVariable Long id){
+        repository.deleteById(id);
+    }
+        
 }

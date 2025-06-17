@@ -17,20 +17,19 @@ public class LivroService {
     public LivroModel cadastrarLivroModel(LivroModel livroModel){
         return repository.save(livroModel);
     }
+    
+    public LivroModel atualizarLivroModel(Long id, LivroModel livroModelAlterado){
+        LivroModel livroModelAtual = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Livro não encontrado pelo id: " + id));
+        livroModelAtual.setTitulo(livroModelAlterado.getTitulo());
+        livroModelAtual.setAutor(livroModelAlterado.getAutor());
+        livroModelAtual.setGenero(livroModelAlterado.getGenero());
+        livroModelAtual.setStatus(livroModelAlterado.getStatus());
+        livroModelAtual.setData(livroModelAlterado.getData());
+        return repository.save(livroModelAtual);
+    }
 
-    public void deletar(Long id){
+    public void deletarLivro(Long id){
         repository.deleteById(id);
     }
-    
-        public LivroModel atualizarLivroModel(Long id, LivroModel livroModelAlterado){
-            LivroModel livroModelAtual = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Livro não encontrado pelo id: " + id));
-            livroModelAtual.setTitulo(livroModelAlterado.getTitulo());
-            livroModelAtual.setAutor(livroModelAlterado.getAutor());
-            livroModelAtual.setGenero(livroModelAlterado.getGenero());
-            livroModelAtual.setStatus(livroModelAlterado.getStatus());
-            livroModelAtual.setData(livroModelAlterado.getData());
-            return repository.save(livroModelAtual);
-        }
-
 }
